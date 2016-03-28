@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE validators PUBLIC
+"-//OpenSymphony Group//XWork Validator 1.0.2//EN"
+"http://www.opensymphony.com/xwork/xwork-validator-1.0.2.dtd">
+
+<validators>
+    <field name="constituency">
+        <field-validator type="int">
+            <param name="min">1</param>
+            <param name="max">536</param>
+            <message>
+                Constituency must be between 1 and 536. Visit the link below for help.
+            </message>
+        </field-validator>
+    </field>
+    <field name="phoneno">
+        <field-validator type="int">
+            <param name="min">1000000000</param>
+            <param name="max">9999999999</param>
+            <message>
+                Phone No. must be of ten digits.
+            </message>
+        </field-validator>
+    </field>
+    <field name="pincode">
+        <field-validator type="int">
+            <param name="min">100000</param>
+            <param name="max">999999</param>
+            <message>
+                Pincode must be of 6 digits.
+            </message>
+        </field-validator>
+    </field>
+</validators>

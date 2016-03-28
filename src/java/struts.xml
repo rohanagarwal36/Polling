@@ -1,0 +1,300 @@
+<!DOCTYPE struts PUBLIC
+"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+"http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+    <!-- Configuration for the default package. -->
+    <package name="default" extends="struts-default">
+        <result-types>
+            <result-type name="tiles" class="org.apache.struts2.views.tiles.TilesResult" />
+        </result-types>
+        <action name="VoterRegisteration" class="com.onps.actions.VoterRegisterAction" >
+            <interceptor-ref name="token"></interceptor-ref><!-- to check double form submission -->
+            <interceptor-ref name="defaultStack"></interceptor-ref><!-- to go to the value stack after submissin -->
+            <result name="success" type="tiles">
+                /VoterVerify
+            </result>
+            <result name="error" type="tiles">
+                /VoterSignup
+            </result>
+            <result name="input" type="tiles">/VoteSignup</result>
+            <result name="invalid.token">home.jsp</result><!--go to this page if user resubmits the form-->
+        </action>
+        <action name="FileUpload" class="com.onps.actions.FileUpload">
+            <interceptor-ref name="token"></interceptor-ref><!-- to check double form submission -->
+            <interceptor-ref name="defaultStack"></interceptor-ref>
+            <interceptor-ref name="fileUpload">
+                <param name="maxSize">2097152</param>
+                <param name="allowedTypes">
+                    image/jpg,image/png,image/JPG,image/jpeg
+                </param>
+            </interceptor-ref>
+            <interceptor-ref name="defaultStack"></interceptor-ref>
+            <result name="invalid.token">/VoterPhotoUpload</result>
+            <result name="success" type="tiles">/VoterUploadedPhoto</result>
+            <result name="input" type="tiles">/VoterPhotoUpload</result>
+            <result name="error" type="tiles">/VoterPhotoUpload</result>
+            
+        </action>
+        
+        
+        <action name="CandidateFileUpload" class="com.onps.actions.CandidateFileUpload">
+            <interceptor-ref name="token"></interceptor-ref><!-- to check double form submission -->
+            <interceptor-ref name="defaultStack"></interceptor-ref>
+            <interceptor-ref name="fileUpload">
+                <param name="maxSize">2097152</param>
+                <param name="allowedTypes">
+                    image/jpg,image/png,image/JPG,image/jpeg
+                </param>
+            </interceptor-ref>
+            <result name="invalid.token">/CandidatePhotoUpload</result>
+            <result name="success" type="tiles">/CandidateUploadedPhoto</result>
+            <result name="error" type="tiles">/CandidatePhotoUpload</result>
+            <result name="input" type="tiles">/CandidatePhotoUpload</result>
+        </action>
+        
+        
+        <action name="UserLogin" class="com.onps.actions.VoterLoginAction">
+            <result name="success" type="tiles">/VoterPanel</result>
+            <result name="error" type="tiles">/VoteLogin</result>
+            <result name="input" type="tiles">/VoteLogin</result>
+            <result name="nophoto" type="tiles">/VoterPhotoUpload</result>
+        </action>
+        <action name="VoterLogin">
+            <result name="success" type="tiles">/VoteLogin</result>
+        </action>
+        <action name="VoterPanel">
+            <result name="success" type="tiles">/VoterPanel</result>
+        </action>
+        <action name="CandidateUserLogin" class="com.onps.actions.CandidateLoginAction">
+            <result name="success" type="tiles">/CandidatePanel</result>
+            <result name="error" type="tiles">/CandidateLogin</result>
+            <result name="input" type="tiles">/CandidateLogin</result>
+            <result name="nophoto" type="tiles">/CandidatePhotoUpload</result>
+        </action>
+        <action name="CandidatePanel">
+            <result name="success" type="tiles">/CandidatePanel</result>
+        </action>
+        <action name="CandidateLogin">
+            <result name="success" type="tiles">/CandidateLogin</result>
+        </action>
+        <action name="VoterSignup">
+            <result name="success" type="tiles">/VoteSignup</result>
+        </action>
+        <action name="VoterPhotoUpload">
+            <result name="success" type="tiles">/VoterPhotoUpload</result>
+        </action>
+        <action name="CandidatePhotoUpload">
+            <result name="success" type="tiles">/CandidatePhotoUpload</result>
+        </action>
+        <action name="VoterLogout" class="com.onps.actions.Logout" >
+            <result name="success" type="tiles">/VoteLogin</result>
+            <result name="error" type="tiles">error.jsp</result>
+        </action>
+        <action name="CandidateLogout" class="com.onps.actions.Logout">
+            <result name="success" type="tiles">/CandidateLogin</result>
+            <result name="error" type="tiles">error.jsp</result>
+        </action>
+        <action name="LogoutAdmin" class="com.onps.actions.Logout" >
+            <result name="success" type="tiles">/Admin</result>
+            <result name="error" type="tiles">error.jsp</result>
+        </action>
+        <action name="CandidateSignup" class="com.onps.actions.CandidateRegisterAction">
+            <interceptor-ref name="token"></interceptor-ref><!-- to check double form submission -->
+            <interceptor-ref name="defaultStack"></interceptor-ref>
+            <result name="success" type="tiles">/CandidateVerify</result>
+            <result name="error" type="tiles">error.jsp</result>
+            <result name="input" type="tiles">/CandidateForm</result>
+            <result name="invalid.token">home.jsp</result>
+        </action>
+        <action name="CandidateForm">
+            <result name="success" type="tiles">/CandidateForm</result>
+        </action>
+        <action name="CandidateVerify">
+            <result name="success" type="tiles">/CandidateVerify</result>
+        </action>
+        <action name="UpdateVoterAccount" >
+            <result name="success" type="tiles">/UpdateVoterAccount</result>
+        </action>
+        <action name="FinalizeVoterAccount" class="com.onps.actions.UpdateVoterAccount">
+            <result name="success" type="tiles">/VoteLogin</result>
+            <result name="error">/VoteLogin</result>
+            <result name="input" type="tiles">/UpdateVoterAccount</result>
+        </action>
+        <action name="SelectParty" >
+            <result name="success" type="tiles">/SelectParty</result>
+        </action>
+        <action name="SelectCandidate" >
+            <result name="success" type="tiles">/SelectCandidate</result>
+        </action>
+        <action name="ListOfCandidates" class="com.onps.actions.CandidatesOfParty">
+            <result name="success" type="tiles">/SelectCandidate</result>
+            <result name="error" type="tiles">error.jsp</result>
+            <result name="input" type="tiles">/SelectParty</result>
+        </action>
+        <action name="CandidateProfile" >
+            <result name="success" type="tiles">/CandidateProfileTiles</result>
+        </action>
+        <action name="CandidateProfileView" class="com.onps.actions.CandidateProfileView">
+            <result name="success" type="tiles">/CandidateProfileTiles</result>
+            <result name="error" type="tiles">error.jsp</result>
+            <result name="input" type="tiles">/SelectCandidate</result>
+        </action>
+        <action name="SelectPartyQues" >
+            <result name="success" type="tiles">/SelectPartyQues</result>
+        </action>
+        <action name="ListOfCandidatesQues" class="com.onps.actions.CandidatesOfPartyQues">
+            <result name="success" type="tiles">/SelectCandidateQues</result>
+            <result name="error" type="tiles">error.jsp</result>
+            <result name="input" type="tiles">/SelectPartyQues</result>
+        </action>
+        <action name="SelectCandidateQues">
+            <result name="success" type="tiles">/SelectCandidateQues</result>
+        </action>
+        <action name="AskQuestion" class="com.onps.actions.AskTheQuestion">
+            <result name="success" type="tiles">/WriteQuestion</result>
+            <result name="error" type="tiles">/VoteLogin</result>
+            <result name="input" type="tiles">/SelectCandidateQues</result>
+        </action>
+        <action name="WriteQuestion">
+            <result name="success" type="tiles">/WriteQuestion</result>
+        </action>
+        <action name="QuestionAsked" class="com.onps.actions.QuestionAsked">
+            <interceptor-ref name="token"></interceptor-ref><!-- to check double form submission -->
+            <interceptor-ref name="defaultStack"></interceptor-ref>
+            <result name="success" type="tiles">/VoterPanel</result>
+            <result name="input" type="tiles">/WriteQuestion</result>
+            <result name="invalid.token">/SelectPartyQues</result>
+            <result name="error" type="tiles">/VoteLogin</result>
+        </action>
+        <action name="HashPassGenerate" class="com.onps.actions.HashPassword">
+            <result name="success" type="tiles">/HashPassGenerate</result>
+            <result name="error" type="tiles">error.jsp</result>
+        </action>
+        <action name="PollingLoginAction" class="com.onps.actions.PollingLoginAction">
+            <result name="success" type="tiles">/CastVote</result>
+            <result name="error" type="tiles">/CastVoteLogin</result>
+            <result name="input" type="tiles">/CastVoteLogin</result>
+        </action>
+        <action name="CastVoteLogin" >
+            <result name="success" type="tiles">/CastVoteLogin</result>
+        </action>
+        <action name="MarkVoted" class="com.onps.actions.MarkVoted">
+            <result name="success" type="tiles">/VoteCasted</result>
+            <result name="error" type="tiles">error.jsp</result>
+            <result name="input" type="tiles">/CastVote</result>
+        </action>
+        <action name="VoterVerifyList" class="com.onps.actions.VoterVerify">
+            <result name="success" type="tiles">/VoterVerifyList</result>
+            <result name="error" type="tiles">error.jsp</result>
+        </action>
+        <action name="CandidateVerifyList" class="com.onps.actions.CandidateVerify">
+            <result name="success" type="tiles">/CandidateVerifyList</result>
+            <result name="error" type="tiles">error.jsp</result>
+        </action>
+         <action name="VoterVerifyInfo" class="com.onps.actions.VoterVerifyInfo">
+            <result name="success" type="tiles">/VoterVerifyInfo</result>
+            <result name="error" type="tiles">error.jsp</result>
+            <result name="input" type="tiles">/VoterVerifyList</result>
+        </action>
+        <action name="CandidateVerifyInfo" class="com.onps.actions.CandidateVerifyInfo">
+            <result name="success" type="tiles">/CandidateVerifyInfo</result>
+            <result name="error" type="tiles">error.jsp</result>
+            <result name="input" type="tiles">/CandidateVerifyList</result>
+        </action>
+        <action name="CandEditProfile" >
+            <result name="success" type="tiles">/CandEditProfile</result>
+        </action>
+        <action name="EditCandidateProfile" class="com.onps.actions.EditCandidateProfile">
+            <result name="success" type="tiles">/CandEditProfile</result>
+            <result name="error" type="tiles">error.jsp</result>
+        </action>
+        <action name="CandidateProfileEditAction" class="com.onps.actions.CandidateProfileEditAction">
+            <result name="success" type="tiles">/ProfileUpdate</result>
+            <result name="error" type="tiles">error.jsp</result>
+            <result name="input" type="tiles">/CandEditProfile</result>
+        </action>
+        <action name="Admin">
+            <result name="success" type="tiles">/Admin</result>
+        </action>
+        <action name="AdminLogin" class="com.onps.actions.AdminLogin">
+            <result name="success" type="tiles">/AdminPanel</result>
+            <result name="error" type="tiles">/Admin</result>
+            <result name="input" type="tiles">/Admin</result>
+        </action>
+        <action name="VoterApproved" class="com.onps.actions.VoterVerify" method="verify">
+            <result name="success" type="tiles">/AdminPanel</result>
+            <result name="error" type="tiles">error.jsp</result>
+        </action>
+        <action name="CandidateApproved" class="com.onps.actions.CandidateVerify" method="verify">
+            <result name="success" type="tiles">/AdminPanel</result>
+            <result name="error" type="tiles">error.jsp</result>
+        </action>
+        
+        <action name="AddPromises" >
+            <result name="success" type="tiles">/AddPromises</result>
+        </action>
+        <action name="AddPromisesAction" class="com.onps.actions.AddPromisesAction">
+            <result name="success" type="tiles">/CandidatePanel</result>
+            <result name="error" type="tiles">error.jsp</result>
+            <result name="input" type="tiles">/AddPromises</result>
+        </action>
+        <action name="AddPromisesAction2" class="com.onps.actions.AddPromisesAction2" method="beforeExecute">
+            <result name="success" type="tiles">/AddPromises</result>
+            <result name="error" type="tiles">error.jsp</result>
+        </action>
+        <action name="ViewQuestionsAction" class="com.onps.actions.ViewQuestionsAction" >
+            <result name="success" type="tiles">/ViewQuestions</result>
+            <result name="error" type="tiles">/CandidatePanel</result>
+        </action>
+        <action name="ViewQuestions" >
+            <result name="success" type="tiles">/ViewQuestions</result>
+        </action>
+        <action name="AnswerQuestion" >
+            <result name="success" type="tiles">/AnswerQuestion</result>
+        </action>
+        <action name="ViewQuestionsAction1" class="com.onps.actions.ViewQuestionsAction" method="afterExecute1">
+            <interceptor-ref name="token"></interceptor-ref><!-- to check double form submission -->
+            <interceptor-ref name="defaultStack"></interceptor-ref>
+            <result name="success" type="tiles">/AnswerQuestion</result>
+            <result name="error" type="tiles">error.jsp</result>
+            <result name="input" type="tiles">/ViewQuestions</result>
+            <result name="invalid.token">/CandidatePanel</result>
+        </action>
+        <action name="ViewQuestionsAction2" class="com.onps.actions.ViewQuestionsAction" method="afterExecute2">
+            <interceptor-ref name="token"></interceptor-ref><!-- to check double form submission -->
+            <interceptor-ref name="defaultStack"></interceptor-ref>
+            <result name="success" type="tiles">/CandidatePanel</result>
+            <result name="error" type="tiles">error.jsp</result>
+            <result name="input" type="tiles">/AnswerQuestion</result>
+            <result name="invalid.token">/CandidatePanel</result>
+            
+        </action>
+        <action name="ViewResultsBy" >
+            <result name="success" type="tiles">/ViewResultsBy</result>
+        </action>
+        <action name="ResultByCandidate" >
+            <result name="success" type="tiles">/ResultByCandidate</result>
+        </action>
+        <action name="ResultByParty" >
+            <result name="success" type="tiles">/ResultByParty</result>
+        </action>
+        <action name="ViewResultAction" class="com.onps.actions.ViewResultAction">
+            <result name="party" type="tiles">/ResultByParty</result>
+            <result name="error" type="tiles">error.jsp</result>
+            <result name="candidate" type="tiles">/ResultByCandidate</result>
+            <result name="input" type="tiles">/ViewResultsBy</result>
+        </action>
+        <action name="Constituencies">
+            <result name="success" type="tiles">/Constituencies</result>
+        </action>
+        <action name="UpdateCandidateAccount">
+            <result name="success" type="tiles">/UpdateCandidateAccount</result>
+        </action>
+        <action name="FinalizeCandidateAccount" class="com.onps.actions.UpdateCandidateAccount">
+            <result name="success" type="tiles">/CandidateLogin</result>
+            <result name="error">/CandidateLogin</result>
+            <result name="input" type="tiles">/UpdateCandidateAccount</result>
+        </action>
+    </package>        
+</struts>

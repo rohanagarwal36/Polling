@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Aug 3, 2014 11:14:06 PM by Hibernate Tools 3.6.0 -->
+<hibernate-mapping>
+    <class name="com.onps.pojos.Votes" table="votes" catalog="onps">
+        <id name="vid" type="string">
+            <column name="vid" length="15" />
+            <generator class="assigned" />
+        </id>
+        <property name="cid" type="string">
+            <column name="cid" length="15" not-null="true" />
+        </property>
+        <property name="constituency" type="int">
+            <column name="constituency" not-null="true" />
+        </property>
+        <property name="party" type="string">
+            <column name="party" length="25" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

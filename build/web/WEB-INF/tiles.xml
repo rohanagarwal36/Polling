@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+ 
+<!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 2.0//EN"
+       "http://tiles.apache.org/dtds/tiles-config_2_0.dtd">
+       
+<tiles-definitions>
+    <definition name="/TilesLayout" template="/layout.jsp">
+        <put-attribute name="header" value="/header.jsp" />
+        <put-attribute name="menu" value="/menu.jsp" />
+        <put-attribute name="body" value="/body.jsp" />
+        <put-attribute name="footer" value="/footer.jsp" />
+    </definition>
+    <definition name="/VoteLogin" extends="/TilesLayout" >
+        <put-attribute name="body" value="/voterlogin.jsp" />
+     </definition>  
+     <definition name="/CandidateLogin" extends="/TilesLayout" >
+        <put-attribute name="body" value="/candidatelogin.jsp" />
+     </definition>  
+    <definition name="/VoteSignup" extends="/TilesLayout" >
+        <put-attribute name="body" value="/voterform.jsp" />
+      </definition> 
+    <definition name="/VoterVerify" extends="/TilesLayout" >
+        <put-attribute name="body" value="/voterformverify.jsp" />
+    </definition>
+    <definition name="/VoterPhotoUpload" extends="/TilesLayout" >
+        <put-attribute name="body" value="/voterphotoupload.jsp" />
+    </definition> 
+    <definition name="/CandidatePhotoUpload" extends="/TilesLayout" >
+        <put-attribute name="body" value="/candidatephotoupload.jsp" />
+    </definition> 
+    <definition name="/VoterUploadedPhoto" extends="/TilesLayout" >
+        <put-attribute name="body" value="/voteruploadedphoto.jsp" />
+    </definition>
+     <definition name="/CandidateUploadedPhoto" extends="/TilesLayout" >
+        <put-attribute name="body" value="/candidateuploadedphoto.jsp" />
+    </definition>
+    <definition name="/VoterPanel" extends="/TilesLayout" >
+        <put-attribute name="menu" value="/votermenu.jsp" />
+        <put-attribute name="body" value="/voterprofile.jsp" />
+    </definition>
+    <definition name="/CandidatePanel" extends="/TilesLayout" >
+        <put-attribute name="menu" value="/candidatemenu.jsp" />
+        <put-attribute name="body" value="/candidateprofile.jsp" />
+    </definition>
+    <definition name="/CandidateForm" extends="/TilesLayout">
+        <put-attribute name="body" value="/candidateform.jsp" />
+    </definition>
+    <definition name="/CandidateVerify" extends="/TilesLayout">
+        <put-attribute name="body" value="/candidateformverify.jsp" />
+    </definition>
+    <definition name="/UpdateVoterAccount" extends="/TilesLayout">
+        <put-attribute name="body" value="/updatevoteraccount.jsp" />
+        <put-attribute name="menu" value="/votermenu.jsp" />
+    </definition>
+    <definition name="/SelectParty" extends="/TilesLayout">
+        <put-attribute name="body" value="/selectparty.jsp" />
+        <put-attribute name="menu" value="/votermenu.jsp" />
+    </definition>
+    <definition name="/SelectCandidate" extends="/TilesLayout">
+        <put-attribute name="body" value="/selectcandidate.jsp" />
+        <put-attribute name="menu" value="/votermenu.jsp" />
+    </definition>
+    <definition name="/SelectCandidate" extends="/TilesLayout">
+        <put-attribute name="body" value="/selectcandidate.jsp" />
+        <put-attribute name="menu" value="/votermenu.jsp" />
+    </definition>
+    <definition name="/CandidateProfileTiles" extends="/TilesLayout">
+        <put-attribute name="body" value="/candidateprofileforvoter.jsp" />
+        <put-attribute name="menu" value="/votermenu.jsp" />
+    </definition>
+    <definition name="/SelectPartyQues" extends="/TilesLayout">
+        <put-attribute name="body" value="/selectpartyques.jsp" />
+        <put-attribute name="menu" value="/votermenu.jsp" />
+    </definition>
+    <definition name="/SelectCandidateQues" extends="/TilesLayout">
+        <put-attribute name="body" value="/selectcandidateques.jsp" />
+        <put-attribute name="menu" value="/votermenu.jsp" />
+    </definition>
+    <definition name="/WriteQuestion" extends="/TilesLayout">
+        <put-attribute name="body" value="/writequestion.jsp" />
+        <put-attribute name="menu" value="/votermenu.jsp" />
+    </definition>
+    <definition name="/HashPassGenerate" extends="/TilesLayout" >
+        <put-attribute name="body" value="/voterprofile.jsp" />
+        <put-attribute name="menu" value="/votermenu.jsp" />
+    </definition>
+    <definition name="/CastVoteLogin" extends="/TilesLayout" >
+        <put-attribute name="body" value="/castvotelogin.jsp" />
+    </definition>
+    <definition name="/CastVote" extends="/TilesLayout" >
+        <put-attribute name="body" value="/castvote.jsp" />
+    </definition>
+    <definition name="/VoteCasted" extends="/TilesLayout" >
+        <put-attribute name="body" value="/votecasted.jsp" />
+    </definition>
+    <definition name="/CandEditProfile" extends="/TilesLayout">
+        <put-attribute name="body" value="/candeditprofile.jsp" />
+        <put-attribute name="menu" value="/candidatemenu.jsp" />
+    </definition>
+    <definition name="/ProfileUpdate" extends="/TilesLayout" >
+        <put-attribute name="body" value="/profileupdated.jsp" />
+        <put-attribute name="menu" value="/candidatemenu.jsp" />
+    </definition>
+     <definition name="/VoterVerifyList" extends="/TilesLayout" >
+        <put-attribute name="body" value="/voterapprovelist.jsp" />
+        <put-attribute name="menu" value="/adminmenu.jsp" />
+    </definition>
+    <definition name="/CandidateVerifyList" extends="/TilesLayout" >
+        <put-attribute name="body" value="/candidateapprovelist.jsp" />
+        <put-attribute name="menu" value="/adminmenu.jsp" />
+    </definition>
+    <definition name="/VoterVerifyInfo" extends="/TilesLayout" >
+        <put-attribute name="body" value="/voterverifyinfo.jsp" />
+        <put-attribute name="menu" value="/adminmenu.jsp" />
+    </definition>
+    <definition name="/CandidateVerifyInfo" extends="/TilesLayout" >
+        <put-attribute name="body" value="/candidateverifyinfo.jsp" />
+        <put-attribute name="menu" value="/adminmenu.jsp" />
+    </definition>
+    <definition name="/Admin" extends="/TilesLayout" >
+        <put-attribute name="body" value="/adminlogin.jsp" />
+    </definition>
+    <definition name="/AdminPanel" extends="/TilesLayout" >
+        <put-attribute name="body" value="/admin.jsp" />
+        <put-attribute name="menu" value="/adminmenu.jsp" />
+    </definition>
+    <definition name="/AddPromises" extends="/TilesLayout" >
+        <put-attribute name="body" value="/addpromises.jsp" />
+        <put-attribute name="menu" value="/candidatemenu.jsp" />
+    </definition>
+    <definition name="/ViewQuestions" extends="/TilesLayout" >
+        <put-attribute name="body" value="/viewquestions.jsp" />
+        <put-attribute name="menu" value="/candidatemenu.jsp" />
+    </definition>
+    <definition name="/AnswerQuestion" extends="/TilesLayout" >
+        <put-attribute name="body" value="/answerquestion.jsp" />
+        <put-attribute name="menu" value="/candidatemenu.jsp" />
+    </definition>
+    <definition name="/ViewResultsBy" extends="/TilesLayout" >
+        <put-attribute name="body" value="/viewresultsby.jsp" />
+    </definition>
+    <definition name="/ResultByCandidate" extends="/TilesLayout" >
+        <put-attribute name="body" value="/resultbycandidate.jsp" />
+    </definition>
+    <definition name="/ResultByParty" extends="/TilesLayout" >
+        <put-attribute name="body" value="/resultbyparty.jsp" />
+    </definition>
+    <definition name="/Constituencies" extends="/TilesLayout" >
+        <put-attribute name="body" value="/constituencies.jsp" />
+    </definition>
+    <definition name="/UpdateCandidateAccount" extends="/TilesLayout">
+        <put-attribute name="body" value="/updatecandidateaccount.jsp" />
+        <put-attribute name="menu" value="/candidatemenu.jsp" />
+    </definition>
+</tiles-definitions>
